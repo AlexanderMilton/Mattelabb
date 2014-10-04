@@ -1,0 +1,24 @@
+﻿Build started 05/10/2014 00:18:24.
+     1>Project "D:\Documents\GitHub\Mattelabb\Mattelabb\Mattelabb.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         D:\Program Files\Visual Studio 2013\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
+         Main.cpp
+     1>d:\documents\github\mattelabb\mattelabb\main.cpp(15): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>d:\documents\github\mattelabb\mattelabb\main.cpp(27): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>d:\documents\github\mattelabb\mattelabb\main.cpp(53): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>d:\documents\github\mattelabb\mattelabb\main.cpp(64): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>d:\documents\github\mattelabb\mattelabb\main.cpp(76): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\documents\github\mattelabb\mattelabb\main.cpp(104): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>d:\documents\github\mattelabb\mattelabb\main.cpp(115): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>d:\documents\github\mattelabb\mattelabb\main.cpp(143): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\documents\github\mattelabb\mattelabb\main.cpp(148): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\documents\github\mattelabb\mattelabb\main.cpp(164): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\documents\github\mattelabb\mattelabb\main.cpp(166): warning C4018: '<' : signed/unsigned mismatch
+       Link:
+         D:\Program Files\Visual Studio 2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Documents\GitHub\Mattelabb\Debug\Mattelabb.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Documents\GitHub\Mattelabb\Debug\Mattelabb.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Documents\GitHub\Mattelabb\Debug\Mattelabb.lib" /MACHINE:X86 Debug\Main.obj
+         Mattelabb.vcxproj -> D:\Documents\GitHub\Mattelabb\Debug\Mattelabb.exe
+     1>Done Building Project "D:\Documents\GitHub\Mattelabb\Mattelabb\Mattelabb.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.95
