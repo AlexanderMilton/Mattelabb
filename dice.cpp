@@ -13,7 +13,7 @@ vec2& Dice::Omega(int n, int m)	//n = no throws, m = no sides
 	cout << "Executing function Omega\n\n";
 
 	vector <int> list;
-	vector < vector <int> > metalist;
+	//vector < vector <int> > metalist;
 
 	int combinations = pow(m, n);
 	cout << "Number of possible combinations = " << combinations << endl << endl;
@@ -36,7 +36,7 @@ vec2& Dice::Omega(int n, int m)	//n = no throws, m = no sides
 
 		}
 
-		// Put the vector in the vector-vector
+		// Put the vector in the vector-vector-reference
 		omega.push_back(list);
 	}
 	
@@ -75,14 +75,14 @@ vec2 Dice::E(int n, int m)
 
 	for (int i = 0; i < omega.size(); i++)
 	{
-		vector< int >& list = omega.at(i);
+		vector< int >& list = omega[i];
 		bool allValues = true;
 		for (int die = 1; die <= m; die++)
 		{
 			bool exists = false;
 			for (int k = 0; k < list.size(); k++)
 			{
-				if (list.at(k) == die)
+				if (list[k] == die)
 				{
 					exists = true;
 				}
@@ -146,11 +146,11 @@ vec2 Dice::F(int n, int m)
 
 	for (int i = 0; i < omega.size(); i++)
 	{
-		vector< int >& list = omega.at(i);
+		vector< int >& list = omega[i];
 
 		for (int j = 1; j < list.size(); j++)
 		{
-			if (list.at(j) >= list.at(j - 1))
+			if (list[j] >= list[j - 1])
 			{
 				metalist.push_back(list);
 			}
@@ -171,11 +171,11 @@ void Dice::printSet(vec2& inputSet)
 	for (int i = 0; i < inputSet.size(); i++)
 	{
 
-		vector <int> list = inputSet.at(i);
+		vector <int> list = inputSet[i];
 
 		for (int j = 0; j < list.size(); j++)
 		{
-			cout << list.at(j) << ", ";
+			cout << list[j] << ", ";
 		}
 		cout << endl;
 	}
@@ -188,16 +188,15 @@ vec2 Dice::section(vec2& A, vec2& B)
 	cout << "Executing function Section\n\n";
 
 	vec2 sect;
+	sect.reserve(A.size()*A[0].size());
 
 	for (int i = 0; i < A.size(); i++)
 	{
 		for (int j = 0; j < B.size(); j++)
 		{
-			if (A.at(i) == B.at(j))
+			if (A[i] == B[j])
 			{
-				sect.push_back(A.at(i));
-				B.erase( B.begin() + j);
-				j--;
+				sect.push_back(A[i]);
 				break;
 			}
 		}
@@ -258,11 +257,19 @@ void Dice::oneBprobability(int n, int m, int x)
 
 	int b = section(values, F(n, m)).size();
 	int a = section(values, section(E(n, m), F(n, m))).size();
-	float probability = (float) a / (float) b;
 
-	cout << a << endl;
-	cout << b << endl;
+	if (b != 0)
+	{
 
-	cout << n << " " << m << "-sided dice " <<
-		" thrown " << x << " times\n gives P( E|F): " << probability << endl;
+		float probability = (float) a / (float) b;
+
+		cout << a << endl;
+		cout << b << endl;
+
+		cout << n << " " << m << "-sided dice " << " thrown " << x << " times\n gives P(E|F): " << probability << endl;
+	}
+	else
+	{
+		cout << "Don't divide by zero, stupid." << endl;
+	}
 }

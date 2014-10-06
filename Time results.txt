@@ -1,0 +1,29 @@
+
+Tidsresultat:
+
+Funktion 5) Sannolikheten av P(E), P(F) och P(E|F) för:
+			en 6-sidig tärning (m) kastad 8 gånger (n).
+			
+			Datum: 6/10
+			Klockan: 16.30
+			Total tid: n/a
+
+Funktion 5) Sannolikheten av P(E), P(F) och P(E|F) för:
+			en 6-sidig tärning (m) kastad 8 gånger (n).
+			
+			- Release mode
+			
+			Datum: 6/10
+			Klockan: 17.00
+			Total tid: n/a
+
+Funktion 5) Sannolikheten av P(E), P(F) och P(E|F) för:
+			en 6-sidig tärning (m) kastad 8 gånger (n).
+			
+			- Release mode
+			- Switched .at(x) to [x]
+			- Removed deletion in section section
+			
+			Datum: 6/10
+			Klockan: 17.00
+			Total tid: n/a

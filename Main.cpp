@@ -8,7 +8,29 @@
 
 using namespace std;
 
+int inputN()	// Number of dice/throws
+{
+	int n = 0;
+	cout << "Number of dice/throws: ";
+	cin >> n;
+	return n;
+}
 
+int inputM()	// Number of sides on the die
+{
+	int m = 0;
+	cout << "Number of die sides: ";
+	cin >> m;
+	return m;
+}
+
+int inputX()	// Number of experimental iterations
+{
+	int x = 0;
+	cout << "Number of experiments: ";
+	cin >> x;
+	return x;
+}
 
 int main()
 {
@@ -30,52 +52,71 @@ Reset:
 	cout << "3) F (n, m)\n";
 	cout << "4) Section(E, F)\n";
 	cout << "5) Uppgift 1a: probability\n";
+	cout << "6) Throw die\n";
+	cout << "7) Throw dice\n";
 	cout << "8) Uppgift 1b: probability\n";
 	cout << endl << endl;
 
 	cin >> input;
 
-	cout << "\nEnter the number of dice throws: ";
-	cin >> n;
-
-	cout << "Enter the number of sides of the dice: ";
-	cin >> m;
 
 	cout << endl;
 
 	switch (input)
 	{
 	case 1:
+		n = inputN();
+		m = inputM();
+		cout << endl;
 		Dice::printSet(Dice::Omega(n, m));
 		break;
 	
 	case 2:
+		n = inputN();
+		m = inputM();
+		cout << endl;
 		Dice::printSet(Dice::E(n, m));
 		break;
 
 	case 3:
+		n = inputN();
+		m = inputM();
+		cout << endl;
 		Dice::printSet(Dice::F(n, m));
 		break;
 
 	case 4:
+		n = inputN();
+		m = inputM();
+		cout << endl;
 		Dice::printSet(Dice::section(Dice::E(n, m), Dice::F(n, m)));
 		break;
 
 	case 5:
+		n = inputN();
+		m = inputM();
+		cout << endl;
 		Dice::probability(n, m);
 		break;
 
 	case 6:
+		m = inputM();
+		cout << endl;
 		Dice::kasta_tarning(m);
 		break;
 
-	case 7: 
+	case 7:
+		n = inputN();
+		m = inputM();
+		cout << endl;
 		Dice::kasta_tarning(n, m);
 		break;
 
 	case 8:
-		cout << "Number of experiments: ";
-		cin >> x;
+		n = inputN();
+		m = inputM();
+		x = inputX();
+		cout << endl;
 		Dice::oneBprobability(n, m, x);
 		break;
 
@@ -85,10 +126,9 @@ Reset:
 	}
 
 	cout << "\n\n";
-	cin.get();
-	cin.get();
+	system("PAUSE");
 
-	cout << "\n\n\n\n\n\n\n\n\n\n\n\n";
+	system("CLS");
 	goto Reset;
 
 	system("PAUSE");
