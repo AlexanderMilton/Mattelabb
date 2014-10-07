@@ -75,6 +75,7 @@ Reset:
 		n = inputN();
 		m = inputM();
 		cout << endl;
+		Dice::Omega(n,m);
 		Dice::printSet(Dice::E(n, m));
 		break;
 
@@ -82,6 +83,7 @@ Reset:
 		n = inputN();
 		m = inputM();
 		cout << endl;
+		Dice::Omega(n,m);
 		Dice::printSet(Dice::F(n, m));
 		break;
 
@@ -89,6 +91,7 @@ Reset:
 		n = inputN();
 		m = inputM();
 		cout << endl;
+		Dice::Omega(n,m);
 		Dice::printSet(Dice::section(Dice::E(n, m), Dice::F(n, m)));
 		break;
 
@@ -96,6 +99,7 @@ Reset:
 		n = inputN();
 		m = inputM();
 		cout << endl;
+		Dice::Omega(n,m);
 		Dice::probability(n, m);
 		break;
 

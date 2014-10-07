@@ -19,7 +19,7 @@ public:
 	static vec2& Omega(int n, int m);
 	static vec2 E(int n, int m);
 	static vec2 F(int n, int m);
-	static void printSet(vec2& a);
+	static void printSet(vec2 a);
 	static vec2 section(vec2& a, vec2& b);
 	static void probability(int n, int m);
 	

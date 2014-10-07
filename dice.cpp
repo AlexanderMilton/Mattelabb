@@ -9,13 +9,14 @@ void Dice::generate_seed()
 
 vec2& Dice::Omega(int n, int m)	//n = no throws, m = no sides
 {
-
+	omega.clear();
 	cout << "Executing function Omega\n\n";
 
 	vector <int> list;
 	//vector < vector <int> > metalist;
 
 	int combinations = pow(m, n);
+	omega.reserve(combinations);
 	cout << "Number of possible combinations = " << combinations << endl << endl;
 
 	// For each loop, create a vector
@@ -39,7 +40,7 @@ vec2& Dice::Omega(int n, int m)	//n = no throws, m = no sides
 		// Put the vector in the vector-vector-reference
 		omega.push_back(list);
 	}
-	
+	cout << "omega1: " << omega.size() << endl;
 	// What's our vector, Victor?
 	return omega;
 }
@@ -49,30 +50,9 @@ vec2& Dice::Omega(int n, int m)	//n = no throws, m = no sides
 vec2 Dice::E(int n, int m)
 {
 	cout << "Executing function E\n\n";
-
-	/*vector <int> list;
-	vector < vector <int> > metalist;
-
-	int combinations = pow(m, n);
-
-	// For each loop, create a vector
-	for (int i = 0; i < combinations; i++)
-	{
-		// Clear list
-		list.clear();
-
-		// For each loop fill a vector
-		for (int j = n - 1; j >= 0; j--)
-		{
-			int power = pow(m, j);
-
-			// Det nya elementet fås av en formel beroende på antalet sidor,
-			// dess position i arrayen samt antalet element arrayen håller 
-			int newElement = ((i / power) % m) + 1;
-			list.push_back(newElement);
-		}*/
+	cout << "omega: " << omega.size() << endl;
 	vec2 metalist;
-
+		
 	for (int i = 0; i < omega.size(); i++)
 	{
 		vector< int >& list = omega[i];
@@ -106,58 +86,23 @@ vec2 Dice::F(int n, int m)
 {
 	cout << "Executing function F\n\n";
 
-	/*vector <int> list;
-	vec2 metalist;
-
-	int combinations = pow(m, n);
-
-	// For each loop, create a vector
-	for (int i = 0; i < combinations; i++)
-	{
-		// Clear list
-		list.clear();
-		int previousElement = 0;
-		// For each loop fill a vector
-		for (int j = n - 1; j >= 0; j--)
-		{
-			int power = pow(m, j);
-
-			// Det nya elementet fås av en formel beroende på antalet sidor,
-			// dess position i arrayen samt antalet element arrayen håller 
-			int newElement = ((i / power) % m) + 1;
-			if (newElement >= previousElement)
-			{
-				list.push_back(newElement);
-				previousElement = newElement;
-			}
-			else
-			{
-				break;
-			}
-		}
-		
-		if (list.size() == n)
-		{
-			metalist.push_back(list);
-		}
-	}*/
-
 	vec2 metalist;
 
 	for (int i = 0; i < omega.size(); i++)
 	{
-		vector< int >& list = omega[i];
-
-		for (int j = 1; j < list.size(); j++)
+		//vector< int >& list = omega[i];
+		bool lessThan = false;
+		for (int j = 1; j < omega[i].size(); j++)
 		{
-			if (list[j] >= list[j - 1])
-			{
-				metalist.push_back(list);
-			}
-			else
-			{
+			if (omega[i][j] < omega[i][j - 1])
+			{	
+				lessThan = true;
 				break;
-			}
+			}					
+		}
+		if (!lessThan)
+		{
+			metalist.push_back(omega[i]);
 		}
 	}
 	return metalist;
@@ -165,9 +110,9 @@ vec2 Dice::F(int n, int m)
 
 
 
-void Dice::printSet(vec2& inputSet)
+void Dice::printSet(vec2 inputSet)
 {
-
+	cout << "InputSet: "<<inputSet.size() << endl;
 	for (int i = 0; i < inputSet.size(); i++)
 	{
 
@@ -188,7 +133,7 @@ vec2 Dice::section(vec2& A, vec2& B)
 	cout << "Executing function Section\n\n";
 
 	vec2 sect;
-	sect.reserve(A.size()*A[0].size());
+	//sect.reserve(A.size()*A[0].size());
 
 	for (int i = 0; i < A.size(); i++)
 	{
@@ -196,7 +141,7 @@ vec2 Dice::section(vec2& A, vec2& B)
 		{
 			if (A[i] == B[j])
 			{
-				sect.push_back(A[i]);
+				sect.push_back(A[i]);				
 				break;
 			}
 		}
@@ -208,14 +153,13 @@ vec2 Dice::section(vec2& A, vec2& B)
 void Dice::probability(int n, int m)
 {
 	cout << "Executing function Probability\n\n";
-
-	vec2 o = Omega(n, m);
+		
 	vec2 e = E(n, m);
 	vec2 f = F(n, m);
 	vec2 s = section(e, f);
 
-	cout << "P(E):   " << float(e.size()) / float(o.size()) << endl;
-	cout << "P(F):   " << float(f.size()) / float(o.size()) << endl;
+	cout << "P(E):   " << float(e.size()) / float(omega.size()) << endl;
+	cout << "P(F):   " << float(f.size()) / float(omega.size()) << endl;
 	cout << "P(E|F): " << float(s.size()) / float(f.size()) << endl;
 }
 
@@ -228,8 +172,6 @@ int Dice::kasta_tarning(int m) // m sidor
 
 	int value = rand() % m + 1;
 
-	cout << value << ", ";
-
 	return value;
 }
 
@@ -240,8 +182,6 @@ vector<int> Dice::kasta_tarning(int n, int m)
 	{
 		values.push_back(kasta_tarning(m));
 	}
-
-	cout << endl;
 
 	return values;
 }
@@ -254,9 +194,12 @@ void Dice::oneBprobability(int n, int m, int x)
 		vector<int> tempValues = kasta_tarning(n, m);
 		values.push_back(tempValues);
 	}
-
-	int b = section(values, F(n, m)).size();
-	int a = section(values, section(E(n, m), F(n, m))).size();
+	omega = values;
+		
+	cout << "E: " << E(n, m).size() << endl;
+	int b = F(n, m).size();
+	cout << "F: " << b << endl;
+	int a = section(E(n, m), F(n, m)).size();
 
 	if (b != 0)
 	{
@@ -270,6 +213,8 @@ void Dice::oneBprobability(int n, int m, int x)
 	}
 	else
 	{
+		cout << a << endl;
+		cout << b << endl;
 		cout << "Don't divide by zero, stupid." << endl;
 	}
 }
