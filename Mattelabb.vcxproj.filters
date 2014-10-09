@@ -21,9 +21,15 @@
     <ClCompile Include="dice.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="binom.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="binom.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

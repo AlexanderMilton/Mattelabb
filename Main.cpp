@@ -5,6 +5,7 @@
 #include <ctime>
 
 #include "dice.h"
+#include "binom.h"
 
 using namespace std;
 
@@ -43,18 +44,24 @@ Reset:
 	int n = 0;
 	int m = 0;
 	int x = 0;
+	int y = 0;
+	int k = 0;
+	string p;
+	string X;
+	string Y;
 
 	cout << "\tAvailable functions:\n\n\n";
-
-	cout << "n = number of dice throws\nm = number of sides\n\n"; 
-	cout << "1) Omega (n, m)\n";
-	cout << "2) E (n, m)\n";
-	cout << "3) F (n, m)\n";
-	cout << "4) Section(E, F)\n";
-	cout << "5) Uppgift 1a: probability\n";
-	cout << "6) Throw die\n";
-	cout << "7) Throw dice\n";
-	cout << "8) Uppgift 1b: probability\n";
+	
+	cout << " 1) Uppgift 1a: Omega (n, m)\n";
+	cout << " 2) E (n, m)\n";
+	cout << " 3) F (n, m)\n";
+	cout << " 4) Section(E, F)\n";
+	cout << " 5) Uppgift 1a: Probability\n";
+	cout << " 6) Throw die\n";
+	cout << " 7) Throw dice\n";
+	cout << " 8) Uppgift 1b: Probability\n";
+	cout << " 9) Uppgift 2a: Pascals triangle\n";
+	cout << "10) Uppgift 2b: Binomial extension\n";
 	cout << endl << endl;
 
 	cin >> input;
@@ -124,10 +131,36 @@ Reset:
 		Dice::oneBprobability(n, m, x);
 		break;
 
+	case 9:
+
+		cout << "n: Ange rad: ";
+		cin >> n;
+		cout << "k: Ange element i raden: ";
+		cin >> k;
+		Binom::binom_pascal(n, k, 1);		// 1 = print triangle
+		break;
+
+	case 10:
+
+		cout << "x: Koefficientvärde: ";
+		cin >> x;
+		cout << "Variabelnamn: ";
+		cin >> X;
+		cout << "y: Koefficientvärde: ";
+		cin >> y;
+		cout << "Variabelnamn: ";
+		cin >> Y;
+		cout << "n: Exponent: ";
+		cin >> n;
+		cout << "Binomialexpansion C(x, y, n): ";
+		Binom::extension(x, X, y, Y, n);
+		break;
+
 	default:
 		goto Reset;
 		break;
 	}
+	
 
 	cout << "\n\n";
 	system("PAUSE");
