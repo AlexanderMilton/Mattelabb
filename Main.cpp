@@ -9,29 +9,9 @@
 
 using namespace std;
 
-int inputN()	// Number of dice/throws
-{
-	int n = 0;
-	cout << "Number of dice/throws: ";
-	cin >> n;
-	return n;
-}
-
-int inputM()	// Number of sides on the die
-{
-	int m = 0;
-	cout << "Number of die sides: ";
-	cin >> m;
-	return m;
-}
-
-int inputX()	// Number of experimental iterations
-{
-	int x = 0;
-	cout << "Number of experiments: ";
-	cin >> x;
-	return x;
-}
+int inputN();
+int inputM();
+int inputX();
 
 int main()
 {
@@ -46,7 +26,7 @@ Reset:
 	int x = 0;
 	int y = 0;
 	int k = 0;
-	string p;
+	float p = 0;
 	string X;
 	string Y;
 
@@ -156,6 +136,13 @@ Reset:
 		Binom::extension(x, X, y, Y, n);
 		break;
 
+	case 11:
+
+		cout << "p: Ange sannolikhet (flyttal 0-1) ";
+		cin >> p;
+		Binom::binom_pascal(n, k, 1);		// 1 = print triangle
+		break;
+
 	default:
 		goto Reset;
 		break;
@@ -170,4 +157,29 @@ Reset:
 
 	system("PAUSE");
 	return 0;
+}
+
+
+int inputN()	// Number of dice/throws
+{
+	int n = 0;
+	cout << "Number of dice/throws: ";
+	cin >> n;
+	return n;
+}
+
+int inputM()	// Number of sides on the die
+{
+	int m = 0;
+	cout << "Number of die sides: ";
+	cin >> m;
+	return m;
+}
+
+int inputX()	// Number of experimental iterations
+{
+	int x = 0;
+	cout << "Number of experiments: ";
+	cin >> x;
+	return x;
 }
