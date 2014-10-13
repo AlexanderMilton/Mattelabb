@@ -21,9 +21,6 @@ vec2& Dice::Omega(int n, int m)	//n = no throws, m = no sides
 
 	cout << "Number of possible combinations = " << combinations << endl << endl;
 
-	cin.get();
-	cin.get();
-
 	// For each loop, create a vector
 	for (int i = 0; i < combinations; i++)
 	{

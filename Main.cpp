@@ -6,6 +6,7 @@
 
 #include "dice.h"
 #include "binom.h"
+#include "coin.h"
 
 using namespace std;
 
@@ -19,6 +20,7 @@ int main()
 Reset:
 
 	Dice::generate_seed();
+	Coin::generate_seed();
 
 	int input = 0;
 	int n = 0;
@@ -42,6 +44,8 @@ Reset:
 	cout << " 8) Uppgift 1b: Probability\n";
 	cout << " 9) Uppgift 2a: Pascals triangle\n";
 	cout << "10) Uppgift 2b: Binomial extension\n";
+	cout << "11) Uppgift 3a: Coin flipping\n";
+	cout << "12) Uppgift 3b: Lots of coins\n";
 	cout << endl << endl;
 
 	cin >> input;
@@ -140,7 +144,15 @@ Reset:
 
 		cout << "p: Ange sannolikhet (flyttal 0-1) ";
 		cin >> p;
-		Binom::binom_pascal(n, k, 1);		// 1 = print triangle
+		cout << "Result: " << Coin::kasta_mynt(p);
+		break;
+
+	case 12:
+		cout << "n: Ange antal myntkast: ";
+		cin >> n;
+		cout << "p: sannolikhet för krona: ";
+		cin >> p;
+		Coin::print_experiment(n, p);
 		break;
 
 	default:

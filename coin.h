@@ -4,13 +4,17 @@
 #include <stdlib.h>
 #include <ctime>
 #include <iostream>
+#include <cassert>
 
 using namespace std;
 
 class Coin
 {
 public:
-	int kasta_mynt(float p);
+	static void generate_seed();
+	static int kasta_mynt(float p);
+	static bool experiment(int n, int k, float p);
+	static void print_experiment(int n, float p);
 };
 
 
