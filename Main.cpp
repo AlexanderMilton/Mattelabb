@@ -38,10 +38,10 @@ Reset:
 	cout << " 2) E (n, m)\n";
 	cout << " 3) F (n, m)\n";
 	cout << " 4) Section(E, F)\n";
-	cout << " 5) Uppgift 1a: Probability\n";
+	cout << " 5) Uppgift 1b: Die Probability\n";
 	cout << " 6) Throw die\n";
 	cout << " 7) Throw dice\n";
-	cout << " 8) Uppgift 1b: Probability\n";
+	cout << " 8) Uppgift 1b: Dice Probability\n";
 	cout << " 9) Uppgift 2a: Pascals triangle\n";
 	cout << "10) Uppgift 2b: Binomial extension\n";
 	cout << "11) Uppgift 3a: Coin flipping\n";
@@ -104,7 +104,7 @@ Reset:
 		n = inputN();
 		m = inputM();
 		cout << endl;
-		Dice::kasta_tarning(n, m);
+		Dice::kasta_tarningar(n, m);
 		break;
 
 	case 8:
@@ -136,7 +136,7 @@ Reset:
 		cin >> Y;
 		cout << "n: Exponent: ";
 		cin >> n;
-		cout << "Binomialexpansion C(x, y, n): ";
+		cout << "\nBinomialexpansion C(x, y, n): \n";
 		Binom::extension(x, X, y, Y, n);
 		break;
 
@@ -160,7 +160,6 @@ Reset:
 		break;
 	}
 	
-
 	cout << "\n\n";
 	system("PAUSE");
 

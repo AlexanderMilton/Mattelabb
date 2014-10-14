@@ -24,7 +24,7 @@ public:
 	static void probability(int n, int m);
 	
 	static int kasta_tarning(int m);
-	static vector<int> kasta_tarning(int n, int m);
+	static vector<int> kasta_tarningar(int n, int m);
 	
 	static void oneBprobability(int n, int m, int x);
 

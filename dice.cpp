@@ -15,14 +15,14 @@ vec2& Dice::Omega(int n, int m)	//n = no throws, m = no sides
 	vector <int> list;
 	//vector < vector <int> > metalist;
 
-	int combinations = pow(m, n);
+	int permutations = pow(m, n);
 
-	omega.reserve(combinations);
+	omega.reserve(permutations);
 
-	cout << "Number of possible combinations = " << combinations << endl << endl;
+	cout << "Number of possible combinations = " << permutations << endl << endl;
 
 	// For each loop, create a vector
-	for (int i = 0; i < combinations; i++)
+	for (int i = 0; i < permutations; i++)
 	{
 		// Clear list
 		list.clear();
@@ -42,7 +42,7 @@ vec2& Dice::Omega(int n, int m)	//n = no throws, m = no sides
 		// Put the vector in the vector-vector-reference
 		omega.push_back(list);
 	}
-	cout << "omega1: " << omega.size() << endl;
+	
 	// What's our vector, Victor?
 	return omega;
 }
@@ -52,7 +52,7 @@ vec2& Dice::Omega(int n, int m)	//n = no throws, m = no sides
 vec2 Dice::E(int n, int m)
 {
 	cout << "Executing function E\n\n";
-	cout << "omega: " << omega.size() << endl;
+	
 	vec2 metalist;
 		
 	for (int i = 0; i < omega.size(); i++)
@@ -177,7 +177,7 @@ int Dice::kasta_tarning(int m) // m sidor
 	return value;
 }
 
-vector<int> Dice::kasta_tarning(int n, int m)
+vector<int> Dice::kasta_tarningar(int n, int m)
 {
 	vector<int> values;
 	for (int i = 0; i < n; i++)
@@ -193,7 +193,7 @@ void Dice::oneBprobability(int n, int m, int x)
 	vec2 values;
 	for (int i = 0; i < x; i++)
 	{
-		vector<int> tempValues = kasta_tarning(n, m);
+		vector<int> tempValues = kasta_tarningar(n, m);
 		values.push_back(tempValues);
 	}
 	omega = values;
@@ -211,7 +211,7 @@ void Dice::oneBprobability(int n, int m, int x)
 		cout << a << endl;
 		cout << b << endl;
 
-		cout << n << " " << m << "-sided dice " << " thrown " << x << " times\n gives P(E|F): " << probability << endl;
+		cout << n << " " << m << "-sided dice " << "thrown " << x << " times\n gives P(E|F): " << probability << endl;
 	}
 	else
 	{
