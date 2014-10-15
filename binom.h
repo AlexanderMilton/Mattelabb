@@ -15,7 +15,7 @@ class Binom
 {
 public:
 	static int binom_pascal(int n, int k, bool p);
-	static void extension(int kx, string x, int ky, string y, int n);
+	static void extension(string x, string y, int n);
 
 };
 

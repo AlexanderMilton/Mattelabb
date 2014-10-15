@@ -39,16 +39,28 @@ int Binom::binom_pascal(int n, int k, bool p)
 	return pascalVector.at(n)->at(k);
 }
 
-void Binom::extension(int kx, string x, int ky, string y, int n)
+void Binom::extension(string x, string y, int n)
 {
 	for (int i = 0; i <= n; i++)
 	{
-		int k = binom_pascal(n, i, 0);
-		if (n - i != 0) k *= pow(kx, n);
-		if (i != 0) k *= pow(ky, n - i);
+		unsigned long int k = binom_pascal(n, i, 0);
+		
+		/*if ((n - i) != 0)
+		{
+			k *= pow(kx, n);
+		}
 
-		if (k > 1) cout << k;
-		if ((n -i) != 1)
+		if (i != 0)
+		{
+			k *= pow(ky, n - i);
+		}*/
+
+		if (k > 1)
+		{
+			cout << k;
+		}
+
+		if ((n - i) != 1)
 		{
 			if ((n - i) != 0) cout << "(" << x << ")^" << n - i;
 		}

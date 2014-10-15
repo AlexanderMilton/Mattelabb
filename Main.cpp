@@ -126,18 +126,14 @@ Reset:
 
 	case 10:
 
-		cout << "x: Koefficientvärde: ";
-		cin >> x;
-		cout << "Variabelnamn: ";
+		cout << "Första termen: ";
 		cin >> X;
-		cout << "y: Koefficientvärde: ";
-		cin >> y;
-		cout << "Variabelnamn: ";
+		cout << "Andra termen: ";
 		cin >> Y;
 		cout << "n: Exponent: ";
 		cin >> n;
 		cout << "\nBinomialexpansion C(x, y, n): \n";
-		Binom::extension(x, X, y, Y, n);
+		Binom::extension(X, Y, n);
 		break;
 
 	case 11:
