@@ -38,7 +38,7 @@ Reset:
 	cout << " 2) E (n, m)\n";
 	cout << " 3) F (n, m)\n";
 	cout << " 4) Section(E, F)\n";
-	cout << " 5) Uppgift 1b: Die Probability\n";
+	cout << " 5) Uppgift 1a: Die Probability\n";
 	cout << " 6) Throw die\n";
 	cout << " 7) Throw dice\n";
 	cout << " 8) Uppgift 1b: Dice Probability\n";
