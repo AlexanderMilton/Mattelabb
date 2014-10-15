@@ -121,7 +121,7 @@ Reset:
 		cin >> n;
 		cout << "k: Ange element i raden: ";
 		cin >> k;
-		Binom::binom_pascal(n, k, 1);		// 1 = print triangle
+		cout << "Resultat: " << Binom::binom_pascal(n, k, 1);		// 1 = print triangle
 		break;
 
 	case 10:

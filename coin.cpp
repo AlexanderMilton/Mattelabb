@@ -13,11 +13,11 @@ int Coin::kasta_mynt(float p)
 
 	int result = 0;
 
-	int probability = p * 1000;
+	int probability = p * 100000;
 
-	result = rand() % 1000;
+	result = rand() % 100000;
 	
-	assert(result >= 0 && result < 1000);
+	assert(result >= 0 && result < 100000);
 
 	if (result < probability)
 	{
